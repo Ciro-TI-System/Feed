@@ -10,7 +10,7 @@ export function Post() {
             src="https://avatars.githubusercontent.com/u/17316392?v=4"
           />
           <div className={styles.authorInfo}>
-            <strong>Jakeliny</strong>
+            <strong>Jakeliny Silva</strong>
             <span>Web Developer</span>
           </div>
           <time title='27 de Julho às 09:11' dateTime='2022-07-27 09:11:50'>Publicado há 1h</time>
@@ -23,10 +23,10 @@ export function Post() {
           É um projeto que fiz no NLW Return, evento da Rocketseat. 
           O nome do projeto é DoctorCare 🚀
         </p>
-        <p> <a href=""> 👉 jane.design/doctorcare </a></p>
+        <p> <a href=""> 👉 jakeliny.design/doctorcare </a></p>
         <p>
-          <a href="">#novoprojeto</a>
-          <a href="">#nlw</a>
+        <a href="">#novoprojeto</a>{' '}
+          <a href="">#nlw</a>{' '}
           <a href="">#rocketseat</a> 
         </p>
       </div>
