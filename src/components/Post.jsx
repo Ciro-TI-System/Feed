@@ -3,8 +3,14 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
+import { useState} from 'react';
 
-export function Post({author, publishedAt, content }) {
+export function Post({ author, publishedAt, content }) {
+
+  const [comments, setComments] = useState([
+    1,
+    2,
+  ]);
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR,
@@ -15,6 +21,12 @@ export function Post({author, publishedAt, content }) {
     addSuffix: true
   });
 
+  function handleCrateNewComment() {
+    event.preventDefault()
+
+    setComments([...comments, comments.length + 1]);
+  }
+
   return (
     <article className={styles.post}>
       <header>
@@ -24,13 +36,15 @@ export function Post({author, publishedAt, content }) {
             <strong>{author.name}</strong>
             <span>{author.role}</span>
           </div>
-          <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+        </div>
+
+        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
           {publishedDateRelativeToNow}
         </time>
-        </div>
       </header>
+
       <div className={styles.content}>
-      {content.map(line => {
+        {content.map(line => {
           if (line.type === 'paragraph') {
             return <p>{line.content}</p>;
           } else if (line.type === 'link') {
@@ -38,7 +52,8 @@ export function Post({author, publishedAt, content }) {
           }
         })}
       </div>
-      <form className={styles.commentForm}>
+
+      <form onSubmit={handleCrateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
         <textarea
@@ -51,9 +66,9 @@ export function Post({author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+      {comments.map(comment => {
+          return <Comment />
+        })}
       </div>
     </article>
   )
