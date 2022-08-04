@@ -3,7 +3,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 import styles from './Post.module.css';
-import { useState} from 'react';
+import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
 
@@ -28,9 +28,13 @@ export function Post({ author, publishedAt, content }) {
     setNewCommentText('');
   }
 
-function handleNewCommentChange() {
-  setNewCommentText(event.target.value);
-}
+  function handleNewCommentChange() {
+    setNewCommentText(event.target.value);
+  }
+
+  function deleteComment(comment) {
+    console.log(`Deletar comentário! ${comment}`)
+  }
 
   return (
     <article className={styles.post}>
@@ -74,8 +78,14 @@ function handleNewCommentChange() {
       </form>
 
       <div className={styles.commentList}>
-      {comments.map(comment => {
-          return <Comment key={comment} content={comment}/>
+        {comments.map(comment => {
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              onDeleteComment={deleteComment}
+            />
+          )
         })}
       </div>
     </article>
