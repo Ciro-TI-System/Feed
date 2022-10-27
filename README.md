@@ -33,7 +33,9 @@ Após executar o comando acima, abra o seu navegador e acesse o endereço:
 
 `http://127.0.0.1:5173/`
 
-<img src="https://github.com/Ciro-TI-System/Feed/blob/main/src/assets/Feed%20de%20coment%C3%A1rios.jpg" alt="Imagem da aplicação"/>
+<img
+src="https://github.com/Ciro-TI-System/Feed/blob/main/src/assets/Feed%20de%20coment%C3%A1rios.jpg"
+alt="Imagem da aplicação"/>
 
 ## :memo: Licença
 
